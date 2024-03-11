@@ -65,6 +65,7 @@ export const Input = styled.input`
   border: none;
   outline: none;
   margin-bottom: 34px;
+  color: #ffffff;
 `;
 
 export const Button = styled.button`
@@ -95,4 +96,32 @@ export const Button = styled.button`
 export const ArrowImg = styled.img`
   width: 22.95px;
   height: 18.93px;
+`;
+
+export const User = styled.li`
+  width: 342px;
+  height: 58px;
+  border-radius: 14px;
+  background: #ffffff40;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  padding: 15px 20px 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  p {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 `;
