@@ -6,6 +6,7 @@ export default createGlobalStyle`
     padding: 0px;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    text-decoration: none;
 }
 
 

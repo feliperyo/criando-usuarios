@@ -1,7 +1,10 @@
 import React, { useState, useRef } from "react";
-import People from "./assets/img-front.png";
-import Arrow from "./assets/arrow.png";
-import Trash from "./assets/trash.png";
+
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import People from "../../assets/img-front.png";
+import Arrow from "../../assets/arrow.png";
 
 import {
   Container,
@@ -12,28 +15,22 @@ import {
   Input,
   Button,
   ArrowImg,
-  User,
 } from "./styles";
 
 const App = () => {
   const [users, setUsers] = useState([]);
   const inputName = useRef();
   const inputAge = useRef();
+  const navigate = useNavigate();
 
-  function addNewUser() {
-    setUsers([
-      {
-        id: Math.random(),
-        name: inputName.current.value,
-        age: inputAge.current.value,
-      },
-      ...users,
-    ]);
-  }
+  async function addNewUser() {
+    const { data: newUser } = await axios.post("http://localhost:3001/users", {
+      name: inputName.current.value,
+      age: inputAge.current.value,
+    });
+    setUsers([newUser, ...users]);
 
-  function deleteUser(userId) {
-    const newUsers = users.filter((user) => user.id !== userId);
-    setUsers(newUsers);
+    navigate("./usuarios");
   }
 
   return (
@@ -53,17 +50,6 @@ const App = () => {
           Cadastrar
           <ArrowImg src={Arrow} alt="seta" />
         </Button>
-
-        <ul>
-          {users.map((user) => (
-            <User key={user.id}>
-              <p>{user.name}</p> <p>{user.age} Anos</p>
-              <button onClick={() => deleteUser(user.id)}>
-                <img src={Trash} alt="deletar" />
-              </button>
-            </User>
-          ))}
-        </ul>
       </ContainerItems>
     </Container>
   );
