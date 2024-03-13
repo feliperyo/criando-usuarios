@@ -5,17 +5,11 @@ import axios from "axios";
 
 import People from "../../assets/img-front.png";
 import Arrow from "../../assets/arrow.png";
+import H1 from "../../components/Title";
+import ContainerItems from "../../components/ContainerItens";
+import NewButton from "../../components/Button";
 
-import {
-  Container,
-  Image,
-  ContainerItems,
-  H1,
-  InputLabel,
-  Input,
-  Button,
-  ArrowImg,
-} from "./styles";
+import { Container, Image, InputLabel, Input, ArrowImg } from "./styles";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -46,10 +40,10 @@ const App = () => {
         <InputLabel>Idade</InputLabel>
         <Input ref={inputAge} type="number" placeholder="Idade"></Input>
 
-        <Button onClick={addNewUser}>
+        <NewButton onClick={addNewUser}>
           Cadastrar
           <ArrowImg src={Arrow} alt="seta" />
-        </Button>
+        </NewButton>
       </ContainerItems>
     </Container>
   );

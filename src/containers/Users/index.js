@@ -5,16 +5,11 @@ import axios from "axios";
 import Avatar from "../../assets/img-back.png";
 import Arrow from "../../assets/arrow.png";
 import Trash from "../../assets/trash.png";
+import H1 from "../../components/Title";
+import ContainerItems from "../../components/ContainerItens";
+import NewButton from "../../components/Button";
 
-import {
-  Container,
-  Image,
-  ContainerItems,
-  H1,
-  Button,
-  ArrowImg,
-  User,
-} from "./styles";
+import { Container, Image, ArrowImg, User } from "./styles";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -45,7 +40,7 @@ const Users = () => {
     <Container>
       <Image src={Avatar} alt="logo-imagem" />
 
-      <ContainerItems>
+      <ContainerItems isBlur={true}>
         <H1>Usuários</H1>
 
         <ul>
@@ -59,10 +54,10 @@ const Users = () => {
           ))}
         </ul>
 
-        <Button onClick={goBackPage}>
+        <NewButton isTransparent={true} onClick={goBackPage}>
           <ArrowImg src={Arrow} alt="seta" />
           Voltar
-        </Button>
+        </NewButton>
       </ContainerItems>
     </Container>
   );
