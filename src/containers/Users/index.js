@@ -18,7 +18,7 @@ const Users = () => {
   useEffect(() => {
     async function fetchUsers() {
       const { data: createdUsers } = await axios.get(
-        "https://criando-usuarios-node.vercel.app/users"
+        "https://users-api-291026213282.herokuapp.com/users"
       );
       setUsers(createdUsers);
     }
@@ -27,7 +27,7 @@ const Users = () => {
   }, []);
 
   async function deleteUser(userId) {
-    await axios.delete(`https://criando-usuarios-node.vercel.app/users/${userId}`);
+    await axios.delete(`https://users-api-291026213282.herokuapp.com/users/${userId}`);
     const newUsers = users.filter((user) => user.id !== userId);
     setUsers(newUsers);
   }

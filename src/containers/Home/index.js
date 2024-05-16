@@ -18,7 +18,7 @@ const App = () => {
   const navigate = useNavigate();
 
   async function addNewUser() {
-    const { data: newUser } = await axios.post("https://criando-usuarios-node.vercel.app/users", {
+    const { data: newUser } = await axios.post("https://users-api-291026213282.herokuapp.com/users", {
       name: inputName.current.value,
       age: inputAge.current.value,
     });
